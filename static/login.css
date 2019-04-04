@@ -1,0 +1,27 @@
+.post{
+  text-align: center;
+
+}
+
+img{
+  weight: 100px;
+  height: 100px;
+}
+
+body{
+	background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/disp/70619a9655183.560d7bfb8dc17.jpg");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-position: 100% 5%;
+}
+
+.post{
+  display: block;
+  float:inherit;
+  color: white;
+  text-align: center;
+  padding: 100px ;
+}
+#button{
+  color: black;
+}
