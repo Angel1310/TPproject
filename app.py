@@ -18,7 +18,7 @@ def register():
 	return render_template('register.html')
 
 @app.route('/registered', methods = ['POST', 'GET'])
-def user():
+def registered():
    if request.method == 'POST':
    		try:
    			us = request.form['username']
@@ -36,7 +36,7 @@ def user():
    			con.rollback()
    		finally:
    			con.close()
-   			return render_template('user_conformed.html', msg = register_msg)
+   			return render_template('user_confirmed.html', msg = register_msg)
 
 @app.route('/loggedin', methods = ['POST', 'GET'])
 def loggedin():
@@ -64,7 +64,7 @@ def loggedin():
 		finally:
 			con.close()
 			if(user_exists):
-				return render_template('loggedin.html', msg = login_msg)
+				return render_template('confirmed_user.html', msg = login_msg)
 			else:
 				return render_template('wrong_login.html')
 
