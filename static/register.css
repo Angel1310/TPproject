@@ -23,6 +23,9 @@ body{
   padding: 24px 16px;
   text-decoration: none;
 }
+input{
+color: black;
+}
 #button{
   color: black;
 

@@ -22,6 +22,9 @@ body{
   text-align: center;
   padding: 100px ;
 }
+input{
+color: black;
+}
 #button{
   color: black;
 }
