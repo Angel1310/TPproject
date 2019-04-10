@@ -10,7 +10,7 @@ class User(db.Model):
 	email = db.Column(db.String(100), nullable = False) 
 	username = db.Column(db.String(100), nullable = False)
 	password = db.Column(db.String(100), nullable = False)
-	game = db.Column(db.Integer, db.ForeignKey('game.id'))
+	mygame = db.Column(db.Integer, db.ForeignKey('game.id'))
 
 	def __init_(self, name, email, password):
 		self.name = name

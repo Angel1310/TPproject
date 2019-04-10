@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Game name</title>
+    <title>Create room</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="../static/css/nav-bar.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/name.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/create_room.css">
 </head>
 <body>
 
     <ul id="navbar">
-        <li class="navbar_link"><a class="nav_link" href="/home">Game room</a></li>
+        <li class="navbar_link"><a class="nav_link" href="/rooms">Rooms</a></li>
       	<li class="navbar_link"><a class="nav_link" href="/about">For Game</a></li>
 		    <li class="navbar_link"><a class="nav_link" href="" >Chat room</a>
 
@@ -17,19 +17,11 @@
         <li class="navbar_link user_link"><span class="symbol glyphicon glyphicon-log-in"></span><a class="nav_link user_link" href="/login">Влизане</a></li>
     </ul>
 
+    <div id="create">
 
-
-
-    <div class= "post">
-        <img src="../static/img/name.png" alt="Game">
-        <h2>Game name</h2>
-        <form action="/loggedin"  method="POST">          
-          <br>
-          <input type="text" id="Name" name="name" placeholder="Name" required autofocus>
-          <br>
-          <br><br>
-          <input  id="button" type="submit" value="Start">
-        </form>
+        <img src="../static/img/game.png" alt="Game">
+        <br>
+        <a class="create_room" href="/creategame">Create room</a>
     </div>
 
 

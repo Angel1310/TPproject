@@ -2,6 +2,7 @@ class Current_user:
 	logged_in = False
 	username = None
 	email = None
+	id = None
 
 	def is_login(self):
 		return self.logged_in
@@ -10,6 +11,7 @@ class Current_user:
 		self.logged_in = True
 
 	def logout(self):
-		username = None
-		email = None
+		self.username = None
+		self.email = None
+		self.id = None
 		self.logged_in = False
