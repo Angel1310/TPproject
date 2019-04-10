@@ -17,6 +17,10 @@ def login():
 def register():
 	return render_template('register.html')
 
+@app.route('/myprofile')
+def myprofile():
+	return render_template('myprofile.html', username = cu.username, email = cu.email)
+
 @app.route('/registered', methods = ['POST', 'GET'])
 def registered():
    if request.method == 'POST':
@@ -36,7 +40,7 @@ def registered():
    			con.rollback()
    		finally:
    			con.close()
-   			return render_template('user_confirmed.html', msg = register_msg)
+   			return render_template('confirmed_user.html', msg = register_msg)
 
 @app.route('/loggedin', methods = ['POST', 'GET'])
 def loggedin():
@@ -46,7 +50,7 @@ def loggedin():
 			ps = request.form['password']
 			with sqlite3.connect("database.db") as con:
 				cur = con.cursor()
-				cur.execute("select fname, sname, email, username from user WHERE username = ? AND password = ?", (us, ps))
+				cur.execute("select username, email from user WHERE username = ? AND password = ?", (us, ps))
 				con.commit()
 				user = cur.fetchone()
 				if(user == None):
@@ -55,18 +59,13 @@ def loggedin():
 				else:
 					user_exists = True;
 					cu.login()
-					cu.username = user[3]
-					cu.fname = user[0]
-	   				cu.sname = user[1]
-	   				cu.email = user[2]
+					cu.username = user[0]
+	   				cu.email = user[1]
 		except :
 			con.rollback()
 		finally:
 			con.close()
-			if(user_exists):
-				return render_template('confirmed_user.html', msg = login_msg)
-			else:
-				return render_template('wrong_login.html')
+			return render_template('confirmed_user.html', msg = login_msg)
 
 if __name__ == '__main__':
    app.run()
