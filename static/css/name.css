@@ -1,0 +1,31 @@
+.post{
+  text-align: center;
+
+}
+
+img{
+  weight: 100px;
+  height: 100px;
+}
+
+body{
+  background-image: url("../img/background.jpg");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-position: 100% 5%;
+}
+
+.post{
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 100px ;
+}
+
+input{
+color: black;
+}
+
+#button{
+  color: black;
+}

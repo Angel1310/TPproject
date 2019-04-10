@@ -1,0 +1,31 @@
+.create_room  {
+
+  color: black;
+
+  padding: 20px ;
+  margin-top:10%;
+
+
+  background-color: white;
+  text-align: center;
+
+
+}
+#create{
+margin-top: 10%;
+margin-left: 47%;
+
+}
+img{
+  weight: 100px;
+  height: 100px;
+  margin-left: 2%;
+  margin-bottom: 20px;
+}
+
+body{
+  background-image: url("../img/background.jpg");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-position: 100% 5%;
+}
