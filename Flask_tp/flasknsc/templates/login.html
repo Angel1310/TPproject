@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% block content %}
+	<div>
+		<form method="POST", action="">
+			{{ form.hidden_tag() }}
+			<fieldset>
+				<legend>Log in</legend>
+				<div>
+					{{ form.username.label(class="from-control-label") }}
+					
+					{% if form.username.errors %}
+						{{ form.username(class="from-control") }}
+						<div>
+							{% for error in form.username.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.username(class="from-control") }}
+					{% endif %}
+				</div>
+				<div>
+					{{ form.password.label(class="from-control-label") }}
+					
+					{% if form.password.errors %}
+						{{ form.password(class="from-control") }}
+						<div>
+							{% for error in form.password.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.password(class="from-control") }}
+					{% endif %}
+				</div>
+				</div>
+			</fieldset>
+			<div class ="form-group">
+				{{ form.submit(class="btn") }}
+			</div>
+		</form>
+	</div>
+	<div>
+		<small>
+			Don't Have An Account Yet? <a href="{{ url_for('register') }}">Sign in</a>
+		</small>
+	</div>
+{% endblock content %}

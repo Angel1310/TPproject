@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block content %}
+	<div>
+		<form method="POST", action="">
+			{{ form.hidden_tag() }}
+			<fieldset>
+				<legend>Log in</legend>
+				<div>
+					{{ form.name.label(class="from-control-label") }}
+					
+					{% if form.name.errors %}
+						{{ form.name(class="from-control") }}
+						<div>
+							{% for error in form.name.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.name(class="from-control") }}
+					{% endif %}
+				</div>
+			</fieldset>
+			<div class ="form-group">
+				{{ form.submit(class="btn") }}
+			</div>
+		</form>
+	</div>
+{% endblock content %}

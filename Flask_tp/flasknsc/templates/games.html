@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block content %}
+	<h1>Games</h1>
+	<!--{{games}}-->
+	{% for game in games %}
+		<div>
+		<p>{{ game.name }}</p>
+		<button><a href="/join_game/{{ game.id }}">Join</a></button>
+		</div>
+	{% endfor %}
+{% endblock content%}

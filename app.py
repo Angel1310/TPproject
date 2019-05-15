@@ -36,9 +36,10 @@ def game():
 
 	with sqlite3.connect("database.db") as con:
 		cur = con.cursor()
-		cur.execute("select game from user WHERE username = ?", (cu.username))
+		cur.execute("select mygame from user WHERE username = ?", (cu.username))
 		con.commit()
 		game_id = cur.fetchone()[0]
+		
 		cur.execute("select name, player1, player2, player3, player4 from game WHERE id = ?", (game_id))
 		con.commit()
 		game = cur.fetchone()[0]
@@ -106,6 +107,7 @@ def game_form():
 	if not cu.is_login():
 		return redirect(url_for("login"))
 
+	game_id = -1
 	if request.method == 'POST':
 		try:
 			nm = request.form['name']
@@ -113,19 +115,22 @@ def game_form():
 				cur = con.cursor()
 				cur.execute("INSERT INTO game (name, player1) VALUES (?, ?)", (nm, cu.id))
 				con.commit()
-				"""
-				cur.execute("select id from game WHERE name = ?", (nm))
+				con.close()
+				
+			with sqlite3.connect("database.db") as con:
+				cur.execute("SELECT g.id FROM game g WHERE g.name = ?", (nm))
 				con.commit()
-				game_id = cur.fetchone()[0]
+				game_id = cur.fetchone()
 
-				cur.execute("UPDATE user SET game = ? WHERE username = ?", (game_id, cu.username))
-				con.commit()
-				"""
+				#cur.execute("UPDATE user SET mygame = ? WHERE username = ?", (game_id, cu.username))
+				#con.commit()
 		except:
+			game_id = -2
 			con.rollback()
 		finally:
+			con.close()
 			#return redirect(url_for("game"))
-			return render_template('confirmed_user.html', msg = "The game succsefully made!")
+			return render_template('confirmed_user.html', msg = game_id)
 
 if __name__ == '__main__':
 	app.run(host = '0.0.0.0', port = 5000)
