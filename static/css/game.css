@@ -1,0 +1,40 @@
+
+    body{
+       background-image: url("../img/background.jpg");
+  	   background-repeat: no-repeat;
+  	   background-size: 100%;
+       background-position: 100% 5%;
+    }
+    #main{
+        width:1000px;
+        float:left;
+    }
+    .pawns{
+        width:30px;
+        height:30px;
+        border-radius:20px;
+        position:absolute;
+    }
+    #dice{
+      background-image:url("../img/game.jpg");
+      background-size:contain;
+       background-repeat: no-repeat;
+      width:150px;
+      height:150px;
+      float:center;
+    }
+    #board{
+
+        background:url("../img/board.gif");
+        background-size:cover;
+        width:650px;
+        height:550px;
+        margin-top:8px;
+    }
+    h3{
+      float:left;
+      color:red;
+    }
+    p{
+      float:left;
+    }

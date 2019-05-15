@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <link rel="stylesheet" type="text/css" href="../static/css/game.css">
+        <link rel="stylesheet" type="text/css" href="../static/css/red.css">
+        <link rel="stylesheet" type="text/css" href="../static/css/yellow.css">
+        <link rel="stylesheet" type="text/css" href="../static/css/green.css">
+        <link rel="stylesheet" type="text/css" href="../static/css/blue.css">
+        <script src="../static/js/Game.js"></script>
+    </head>
+
+    <body>
+        <div id="main">
+            <div id="board"></div>
+
+            <div id="dice" onclick="randomNum()"></div>
+            <div class="pawns" id="redpawn1" onclick="Move('red',1)"></div>
+            <div class="pawns" id="redpawn2" onclick="Move('red',2)"></div>
+            <div class="pawns" id="redpawn3" onclick="Move('red',3)"></div>
+            <div class="pawns" id="redpawn4" onclick="Move('red',4)"></div>
+            <div class="pawns" id="yellowpawn1" onclick="Move('yellow',1)"></div>
+            <div class="pawns" id="yellowpawn2" onclick="Move('yellow',2)"></div>
+            <div class="pawns" id="yellowpawn3" onclick="Move('yellow',3)"></div>
+            <div class="pawns" id="yellowpawn4" onclick="Move('yellow',4)"></div>
+            <div class="pawns" id="greenpawn1" onclick="Move('green',1)"></div>
+            <div class="pawns" id="greenpawn2" onclick="Move('green',2)"></div>
+            <div class="pawns" id="greenpawn3" onclick="Move('green',3)"></div>
+            <div class="pawns" id="greenpawn4" onclick="Move('green',4)"></div>
+            <div class="pawns" id="bluepawn1" onclick="Move('blue',1)"></div>
+            <div class="pawns" id="bluepawn2" onclick="Move('blue',2)"></div>
+            <div class="pawns" id="bluepawn3" onclick="Move('blue',3)"></div>
+            <div class="pawns" id="bluepawn4" onclick="Move('blue',4)"></div>
+
+            <h3 id="player">red</h3>
+            <p id="badtext"></p>
+        </div>
+
+    </body>
+</html>
