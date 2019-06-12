@@ -12,6 +12,20 @@ var stepsYellow = [];
 var stepsBlue =[];
 var stepsGreen =[];
 
+function CheckForWinner() {
+    if (pawnOut[currcolor] == 4) {
+        var dice = document.getElementById("dice");
+        var player = document.getElementById("player");
+        var uselesstext1 = document.getElementById("uselesstext1");
+        var uselesstext2 = document.getElementById("uselesstext2");
+        dice.innerText = "";
+        dice.style.visibility = "hidden";
+        uselesstext1.innerText = "";
+        uselesstext2.innerText = "";
+        player.innerText = "The Winner is the "+currcolor+" player";
+    }
+}
+
 function changePlayer() {
     if (num != 6){
     var text = document.getElementById('player');
@@ -22,11 +36,24 @@ function changePlayer() {
         case "green": text.innerText = text.style.color = "red"; break;
     }
     }
-    var badtext = document.getElementById('badtext');
-    badtext.innerText = "";
+    var text = document.getElementById('text');
+    text.innerText = "";
     var dice = document.getElementById('dice');
     dice.style.backgroundImage = "url(../static/img/dice.gif)";
 }
+
+function Stuck() {
+    var text = document.getElementById('player');
+    if (onboard[currpawn] == 0||currPos+num>44) {
+        if (DontHaveOtherFree()||currPos+num>44) {
+            clicked = false;
+            var dice = document.getElementById('dice');
+            dice.style.backgroundImage = "url(../static/img/dice.gif)";
+            window.setTimeout(changePlayer, 1000);
+        }
+    }
+}
+
 var positions = {
     redpawn1: 0, redpawn2: 0, redpawn3: 0, redpawn4: 0,
     bluepawn1: 0, bluepawn2: 0, bluepawn3: 0, bluepawn4: 0,
@@ -39,6 +66,24 @@ var onboard = {
     greenpawn1: 0, greenpawn2: 0, greenpawn3: 0, greenpawn4: 0,
     yellowpawn1: 0, yellowpawn2: 0, yellowpawn3: 0, yellowpawn4: 0
 };
+
+function HaveHover() {
+    var count = 0;
+    var toKill = "";
+    for (var i = 0; i < allcolor.length; i++) {
+        for (var n = 1; n <= 4; n++) {
+            var firstPawn = document.getElementById(allcolor[i] + "pawn" + n);
+            var secondPawn=document.getElementById(currpawn);
+            if (firstPawn.style.top==secondPawn.style.top&&firstPawn.style.left==secondPawn.style.left&&currcolor!=allcolor[i]&&currPos+num<44) {
+                count++;
+                toKill = allcolor[i] + "pawn" + n;
+                return toKill;
+            }
+        }
+    }
+    return false;
+}
+
 function DontHaveOtherFree() {
     var text = document.getElementById('player');
     for (var i = 1; i <=4; i++) {
@@ -134,22 +179,22 @@ function ResetPawn(victim) {
     positions[victim] = 0;
     var pawnToMove = document.getElementById(victim);
     switch (victim) {
-        case "redpawn1": pawnToMove.style.top = 149 + "px"; pawnToMove.style.left = 442 + "px"; break;
-        case "redpawn2": pawnToMove.style.top = 102 + "px"; pawnToMove.style.left = 395 + "px"; break;
-        case "redpawn3": pawnToMove.style.top = 55 + "px"; pawnToMove.style.left = 442 + "px"; break;
-        case "redpawn4": pawnToMove.style.top = 102 + "px"; pawnToMove.style.left = 490 + "px"; break;
-        case "bluepawn1": pawnToMove.style.top = 451 + "px"; pawnToMove.style.left = 490 + "px"; break;
-        case "bluepawn2": pawnToMove.style.top = 451 + "px"; pawnToMove.style.left = 395 + "px"; break;
-        case "bluepawn3": pawnToMove.style.top = 404 + "px"; pawnToMove.style.left = 442 + "px"; break;
-        case "bluepawn4": pawnToMove.style.top = 498 + "px"; pawnToMove.style.left = 442 + "px"; break;
-        case "greenpawn1": pawnToMove.style.top = 149 + "px"; pawnToMove.style.left = 93 + "px"; break;
-        case "greenpawn2": pawnToMove.style.top = 102 + "px"; pawnToMove.style.left = 140 + "px"; break;
-        case "greenpawn3": pawnToMove.style.top = 55 + "px"; pawnToMove.style.left = 93 + "px"; break;
-        case "greenpawn4": pawnToMove.style.top = 102 + "px"; pawnToMove.style.left = 47 + "px"; break;
-        case "yellowpawn1": pawnToMove.style.top = 451 + "px"; pawnToMove.style.left = 47 + "px"; break;
-        case "yellowpawn2": pawnToMove.style.top = 451 + "px"; pawnToMove.style.left = 140 + "px"; break;
-        case "yellowpawn3": pawnToMove.style.top = 404 + "px"; pawnToMove.style.left = 93 + "px"; break;
-        case "yellowpawn4": pawnToMove.style.top = 498 + "px"; pawnToMove.style.left = 93 + "px"; break;
+        case "redpawn1": pawnToMove.style.top = 290 + "px"; pawnToMove.style.left = 983 + "px"; break;
+        case "redpawn2": pawnToMove.style.top = 243 + "px"; pawnToMove.style.left = 936 + "px"; break;
+        case "redpawn3": pawnToMove.style.top = 196 + "px"; pawnToMove.style.left = 983 + "px"; break;
+        case "redpawn4": pawnToMove.style.top = 243 + "px"; pawnToMove.style.left = 1031 + "px"; break;
+        case "bluepawn1": pawnToMove.style.top = 592 + "px"; pawnToMove.style.left = 1031 + "px"; break;
+        case "bluepawn2": pawnToMove.style.top = 592 + "px"; pawnToMove.style.left = 936 + "px"; break;
+        case "bluepawn3": pawnToMove.style.top = 545 + "px"; pawnToMove.style.left = 983 + "px"; break;
+        case "bluepawn4": pawnToMove.style.top = 498 + "px"; pawnToMove.style.left = 983 + "px"; break;
+        case "greenpawn1": pawnToMove.style.top = 290 + "px"; pawnToMove.style.left = 634 + "px"; break;
+        case "greenpawn2": pawnToMove.style.top = 243 + "px"; pawnToMove.style.left = 681 + "px"; break;
+        case "greenpawn3": pawnToMove.style.top = 196 + "px"; pawnToMove.style.left = 634 + "px"; break;
+        case "greenpawn4": pawnToMove.style.top = 243 + "px"; pawnToMove.style.left = 588 + "px"; break;
+        case "yellowpawn1": pawnToMove.style.top = 592 + "px"; pawnToMove.style.left = 588 + "px"; break;
+        case "yellowpawn2": pawnToMove.style.top = 592 + "px"; pawnToMove.style.left = 681 + "px"; break;
+        case "yellowpawn3": pawnToMove.style.top = 545 + "px"; pawnToMove.style.left = 634 + "px"; break;
+        case "yellowpawn4": pawnToMove.style.top = 639 + "px"; pawnToMove.style.left = 634 + "px"; break;
 
     }
 }
@@ -161,7 +206,7 @@ function randomNum() {
         clicked = true;
     }
     if (num != 6 && DontHaveOtherFree()) {
-        var bad = document.getElementById('badtext');
+        var bad = document.getElementById('text');
         window.setTimeout(changePlayer, 1000);
         clicked = false;
     }
@@ -172,73 +217,87 @@ function Move(Color, paw) {
     currcolor = Color;
     currpawn = currcolor + "pawn" + NumOfPaw;
     currPos = positions[currpawn];
+    if (num + currPos > 44) {
+        Stuck();
+    }else{
+      if (clicked) {
+          var position = currPos;
+          if (text.innerText == currcolor) {
+              if (onboard[currpawn] === 1 || num === 6) {
+                  if (onboard[currpawn] === 0) {
+                      var doc = document.getElementById(currpawn);
+                      var curr = Number(doc.style.left.replace(/[a-z]/g, ''));
+                      switch (Color) {
+                          case "red":
+                              doc.style.left = 859 + 'px';
+                              doc.style.top = 169 + "px";
+                              break;
 
-        if (clicked) {
-            var position = currPos;
-            if (text.innerText == currcolor) {
-                if (onboard[currpawn] === 1 || num === 6) {
-                    if (onboard[currpawn] === 0) {
-                        var doc = document.getElementById(currpawn);
-                        var curr = Number(doc.style.left.replace(/[a-z]/g, ''));
-                        switch (Color) {
-                            case "red":
-                                doc.style.left = 318 + 'px';
-                                doc.style.top = 28 + "px";
-                                break;
+                          case "yellow":
+                              doc.style.left = 760 + 'px';
+                              doc.style.top = 664 + "px";
+                              break;
 
-                            case "yellow":
-                                doc.style.left = 219 + 'px';
-                                doc.style.top = 523 + "px";
-                                break;
+                          case "blue":
+                              doc.style.left = 1057 + 'px';
+                              doc.style.top = 466 + "px";
+                              break;
 
-                            case "blue":
-                                doc.style.left = 516 + 'px';
-                                doc.style.top = 325 + "px";
-                                break;
+                          case "green":
+                              doc.style.left = 562 + 'px';
+                              doc.style.top = 367 + "px";
+                              break;
+                      }
+                      onboard[currpawn] = 1;
+                  }
+                  else {
+                      switch (Color) {
+                          case "red":
+                              for (i = currPos; i < position + num; i++) {
+                                  stepsRed[i]();
+                              }
+                              break;
 
-                            case "green":
-                                doc.style.left = 21 + 'px';
-                                doc.style.top = 226 + "px";
-                                break;
-                        }
-                        onboard[currpawn] = 1;
-                    }
-                    else {
-                        switch (Color) {
-                            case "red":
-                                for (i = currPos; i < position + num; i++) {
-                                    stepsRed[i]();
-                                }
-                                break;
+                          case "yellow":
+                              for (i = currPos; i < position + num; i++) {
+                                  stepsYellow[i]();
+                              }
+                              break;
 
-                            case "yellow":
-                                for (i = currPos; i < position + num; i++) {
-                                    stepsYellow[i]();
-                                }
-                                break;
+                          case "blue":
+                              for (i = currPos; i < position + num; i++) {
+                                  stepsBlue[i]();
+                              }
+                              break;
 
-                            case "blue":
-                                for (i = currPos; i < position + num; i++) {
-                                    stepsBlue[i]();
-                                }
-                                break;
+                          case "green":
+                              for (i = currPos; i < position + num; i++) {
+                                  stepsGreen[i]();
+                              }
+                              break;
+                      }
+                      positions[currpawn] = currPos;
+                      var victim = HaveHover();
+                      if (victim != false) {
+                         ResetPawn(victim);
+                      }
+                      if (currPos == 44) { pawnOut[currcolor]++; onboard[currpawn] = 0; positions[currpawn] = 0; document.getElementById(currpawn).style.visibility = "hidden"; };
+                      CheckForWinner();
+                      changePlayer();
+                  }
+                  num = 0;
+                  clicked = false;
+                  var dice = document.getElementById('dice');
+                  dice.style.backgroundImage = "url(../static/img/dice.gif)";
+              }
+              else Stuck();
 
-                            case "green":
-                                for (i = currPos; i < position + num; i++) {
-                                    stepsGreen[i]();
-                                }
-                                break;
-                        }
-                        positions[currpawn] = currPos;
-                        changePlayer();
-                    }
-                    num = 0;
-                    clicked = false;
-                    var dice = document.getElementById('dice');
-                    dice.style.backgroundImage = "url(../static/img/dice.gif)";
-                }
+          }
+      }
 
-            }
-        }
+
+    }
+
+
 
 }

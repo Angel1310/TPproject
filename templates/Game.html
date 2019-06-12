@@ -2,19 +2,48 @@
 <html>
     <head>
         <title></title>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
         <link rel="stylesheet" type="text/css" href="../static/css/game.css">
         <link rel="stylesheet" type="text/css" href="../static/css/red.css">
         <link rel="stylesheet" type="text/css" href="../static/css/yellow.css">
         <link rel="stylesheet" type="text/css" href="../static/css/green.css">
         <link rel="stylesheet" type="text/css" href="../static/css/blue.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="../static/js/Game.js"></script>
     </head>
 
     <body>
+
+      <div class="card" id = "main">
+       <img class="avatar" src="http://files.softicons.com/download/web-icons/user-icons-by-mike-demetriou/ico/user%20green.ico" alt="Avatar" >
+
+       <div class="container">
+         <h4><b>John Doe</b></h4>
+
+       </div>
+       <div class="card3"  id= "main">
+        <img class="avatar" src="http://files.softicons.com/download/web-icons/user-icons-by-mike-demetriou/ico/user%20yellow.ico" alt="Avatar" >
+
+        <div class="container">
+          <h4><b>John Doe</b></h4>
+
+        </div>
+      </div>
+
+      </div>
         <div id="main">
             <div id="board"></div>
 
-            <div id="dice" onclick="randomNum()"></div>
+
             <div class="pawns" id="redpawn1" onclick="Move('red',1)"></div>
             <div class="pawns" id="redpawn2" onclick="Move('red',2)"></div>
             <div class="pawns" id="redpawn3" onclick="Move('red',3)"></div>
@@ -32,9 +61,35 @@
             <div class="pawns" id="bluepawn3" onclick="Move('blue',3)"></div>
             <div class="pawns" id="bluepawn4" onclick="Move('blue',4)"></div>
 
+            <div id="dice" onclick="randomNum()"></div>
+
+
             <h3 id="player">red</h3>
-            <p id="badtext"></p>
+            <p id="text"></p>
         </div>
+        <div class="card1" >
+         <img class="avatar" src="http://files.softicons.com/download/web-icons/user-icons-by-mike-demetriou/ico/user%20red.ico" alt="Avatar" >
+
+         <div class="container">
+           <h4><b>John Doe</b></h4>
+
+         </div>
+       </div>
+
+         <div class="card2">
+          <img class="avatar" src="http://files.softicons.com/download/web-icons/user-icons-by-mike-demetriou/ico/user%20blue.ico" alt="Avatar" >
+
+          <div class="container">
+            <h4><b>John Doe</b></h4>
+
+          </div>
+        </div>
+
+
+
+
+
+
 
     </body>
 </html>

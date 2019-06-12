@@ -5,9 +5,49 @@
   	   background-size: 100%;
        background-position: 100% 5%;
     }
+    .card {
+      width: 20%;
+      float:left;
+    }
+    .card1 {
+      width: 300px;
+      float: right;
+    }
+    .card3 {
+      padding-top: 150px;
+      width: 20%;
+      float:left;
+
+    }
+    .card2 {
+      padding-top: 500px;
+      width: 20px;
+      float: right;
+
+    }
+
+
+
+    .container {
+
+      color:white;
+      padding: 12px 16px;
+      margin-left: 90px
+    }
+
+
+    .avatar{
+      margin-top: 55px;
+      margin-left: 44px;
+      width: 200px;
+      height:200px;
+    }
+
     #main{
-        width:1000px;
-        float:left;
+        width:200px;
+        height: 100px;
+        float: left;
+
     }
     .pawns{
         width:30px;
@@ -18,10 +58,10 @@
     #dice{
       background-image:url("../img/game.jpg");
       background-size:contain;
-       background-repeat: no-repeat;
-      width:150px;
-      height:150px;
-      float:center;
+      background-repeat: no-repeat;
+      width:70px;
+      height:70px;
+      float:right;
     }
     #board{
 
@@ -29,12 +69,20 @@
         background-size:cover;
         width:650px;
         height:550px;
-        margin-top:8px;
+        margin-top:157px;
+        margin-left:349px;
+
+
     }
+
     h3{
-      float:left;
+      float:right;
       color:red;
     }
     p{
-      float:left;
+      color: white;
+      float:center;
+    }
+    #text{
+      color:white;
     }

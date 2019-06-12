@@ -12,14 +12,79 @@
 
 }
 #create{
-margin-top: 10%;
+margin-top: 100px;
 margin-left: 47%;
 
 }
-img{
-  weight: 100px;
-  height: 100px;
+#join{
+  margin-top: 10%;
+  margin-left: 110px;
+  float:left;
+
+}
+#join1{
+  margin-top: 10%;
+  margin-left: 110px;
+  float:left;
+
+}
+
+.join_room {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: red;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  margin-left: 37px;
+}
+
+.join_room:hover {background-color: #3e8e41}
+
+.join_room:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+.join_room1 {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: green;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+
+}
+
+.join_room1:hover {background-color: #3e8e41}
+
+.join_room1:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+#img1{
+  weight: 150px;
+  height: 150px;
   margin-left: 2%;
+  margin-bottom: 20px;
+}
+#img2{
+  weight: 200px;
+  height: 200px;
+  margin-left: 36px;
   margin-bottom: 20px;
 }
 
